@@ -1,0 +1,12 @@
+﻿global using MathGame.src.Presentation.ViewModels;
+global using CommunityToolkit.Maui;
+global using MathGame.src.Presentation.Pages;
+global using CommunityToolkit.Mvvm.ComponentModel;
+global using CommunityToolkit.Mvvm.Input;
+global using MathGame.src.Application.Utils;
+global using System.Threading.Tasks;
+global using MathGame.src.Domain.Entities;
+global using System.Linq.Expressions;
+global using MathGame.src.Application.Repositories;
+global using MathGame.src.Infrastructure.Common;
+global using MathGame.src.Infrastructure.Persistence;

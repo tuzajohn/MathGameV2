@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathGame.src.Presentation.Pages.MainPage"
+             BackgroundColor="White">
+            <!--BackgroundImageSource="dotnet_bot.png"-->
+
+    <ScrollView>
+        <Grid Margin="10,20"
+              RowDefinitions=".75*,Auto">
+
+            <VerticalStackLayout>
+                <Label Text="Hello"
+                       FontAttributes="Bold"
+                       TextTransform="Uppercase"
+                       HorizontalOptions="Start"
+                       Style="{StaticResource Headline}"
+                       SemanticProperties.HeadingLevel="Level1" />
+                
+                <Label Text="Welcome to Math Game"
+                       HorizontalOptions="Start"
+                       Style="{StaticResource SubHeadline}"
+                       SemanticProperties.HeadingLevel="Level1" />
+                
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="25"
+                                 Margin="0, -200, 0, 0"
+                                 Grid.Row="1">
+
+
+                <Button Text="Sign In" CornerRadius="50"
+                        SemanticProperties.Hint="Login"
+                        HorizontalOptions="Fill" 
+                        x:Name="SignIn"
+                        Clicked="SignInClicked"/>
+                
+                <Button Text="Sign Up" CornerRadius="50"
+                        SemanticProperties.Hint="Register"
+                        HorizontalOptions="Fill" />
+
+                
+            </VerticalStackLayout>
+        </Grid>
+
+    </ScrollView>
+
+</ContentPage>
