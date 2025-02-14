@@ -19,5 +19,9 @@ public partial class PlaygroundViewModel : BaseViewModel
         if (featureRequest == null) { }
 
         var response = await _mediator.Send(featureRequest!);
+
+        if (response.ShowMessageAndStopExecution())
+            return;
+
     }
 }

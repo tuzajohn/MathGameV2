@@ -37,7 +37,9 @@
                 
                 <Button Text="Sign Up" CornerRadius="50"
                         SemanticProperties.Hint="Register"
-                        HorizontalOptions="Fill" />
+                        HorizontalOptions="Fill"
+                        x:Name="SignUp"
+                        Clicked="SignUpClicked"/>
 
                 
             </VerticalStackLayout>

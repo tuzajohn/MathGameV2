@@ -31,6 +31,7 @@ namespace MathGame
             builder.Services.AddSingleton(s => new SQLiteAsyncConnection(Constants.DatabasePath,openFlags: flags));
             builder.Services.AddSingleton(typeof(IBaseRepository<,>), typeof(BaseRepository<,>));
             builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
+            builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
             //builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
@@ -38,9 +39,8 @@ namespace MathGame
 
             //RegisterValidators(builder.Services, Assembly.Load("MyApp.Validators"));
             RegisterValidators(builder.Services, Assembly.GetExecutingAssembly());
-
-            builder.Services.AddScoped<PlaygroundViewModel>();
-            builder.Services.AddScoped<PlaygroundPage>();
+            RegisterPages(builder.Services, Assembly.GetExecutingAssembly());
+            RegisterViewModels(builder.Services, Assembly.GetExecutingAssembly());
 
 
             builder.Services.AddSingleton<ExceptionHandler>();
@@ -70,6 +70,26 @@ namespace MathGame
             {
                 var interfaceType = validatorType.GetInterfaces().First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IValidator<>));
                 services.AddTransient(interfaceType, validatorType);
+            }
+        }
+        private static void RegisterPages(IServiceCollection services, Assembly assembly)
+        {
+            var pageTypes = assembly.GetTypes()
+                .Where(t => t.IsClass && !t.IsAbstract && t.Name.EndsWith("Page"));
+
+            foreach (var pageType in pageTypes)
+            {
+                services.AddTransient(pageType);
+            }
+        }
+        private static void RegisterViewModels(IServiceCollection services, Assembly assembly)
+        {
+            var viewModelTypes = assembly.GetTypes()
+                .Where(t => t.IsClass && !t.IsAbstract && t.Name.EndsWith("ViewModel"));
+
+            foreach (var pageType in viewModelTypes)
+            {
+                services.AddTransient(pageType);
             }
         }
     }

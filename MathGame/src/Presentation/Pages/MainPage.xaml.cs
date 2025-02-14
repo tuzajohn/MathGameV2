@@ -9,6 +9,11 @@ public partial class MainPage : ContentPage
 
     private async void SignInClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(Constants.ToPlayground);
+        await Shell.Current.GoToAsync(Constants.ToSignIn);
+    }
+
+    private async void SignUpClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(Constants.ToSignUp);
     }
 }

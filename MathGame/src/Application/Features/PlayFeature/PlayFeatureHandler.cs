@@ -21,7 +21,10 @@ namespace MathGame.src.Application.Features.PlayFeature
         }
         public async Task<MessageResponse> Handle(PlayFeatureRequest request, CancellationToken cancellationToken)
         {
-            _playValidator.ValidateAndHandleErrors(request);
+            var responseMessage = _playValidator.ValidateAndHandleErrors(request);
+
+            if (responseMessage.Code != 0)
+                return responseMessage;
 
             await _playerRepository.CreateAsync(new Player(request.Name));
 

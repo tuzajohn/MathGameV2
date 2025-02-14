@@ -1,4 +1,6 @@
-﻿namespace MathGame
+﻿using MathGame.src.Presentation.Pages.AuthenticationPages;
+
+namespace MathGame
 {
     public partial class AppShell : Shell
     {
@@ -7,7 +9,9 @@
             InitializeComponent();
 
 
-            Routing.RegisterRoute("playground", typeof(PlaygroundPage));
+            Routing.RegisterRoute(Constants.ToPlayground, typeof(PlaygroundPage));
+            Routing.RegisterRoute(Constants.ToSignIn, typeof(SignInPage));
+            Routing.RegisterRoute(Constants.ToSignUp, typeof(SignUpPage));
         }
     }
 }

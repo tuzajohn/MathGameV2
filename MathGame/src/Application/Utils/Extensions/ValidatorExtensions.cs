@@ -11,14 +11,15 @@ namespace MathGame.src.Application.Utils.Extensions;
 
 public static class ValidatorExtensions
 {
-    public static async void ValidateAndHandleErrors<T>(this IValidator<T> validator, T instance)
+    public static MessageResponse ValidateAndHandleErrors<T>(this IValidator<T> validator, T instance)
     {
         var result = validator.Validate(instance);
         if (!result.IsValid)
         {
             var errorMessage = string.Join(Environment.NewLine, result.Errors.Select(x => x.ErrorMessage));
 
-            throw new ValidationException(errorMessage);
+            return new MessageResponse(errorMessage, -1);
         }
+        return new MessageResponse("", 0);
     }
 }

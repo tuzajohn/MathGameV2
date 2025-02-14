@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MathGame.src.Presentation.ViewModels.AuthenticationVm"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MathGame.src.Presentation.Pages.AuthenticationPages.SignInPage"
+             Shell.NavBarIsVisible="False"
+             x:DataType="vm:SignInViewModel">
+    <ScrollView>
+        <Grid RowDefinitions="0.33*, *">
+            <Image Source="dotnet_bot.png"/>
+
+            <Border Grid.Row="1"
+                    Background="{StaticResource Gray100}"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20,20,0,0"
+                    Padding="0,40,0,0">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto, *">
+                    
+                    <Border Grid.Row="0" StrokeShape="RoundRectangle 40"
+                            Margin="20, 30, 0, 30"
+                            Padding="20,5">
+                        <Entry Placeholder="Email"
+                               Text="{Binding Email, Mode=TwoWay}"/>
+                    </Border>
+                    
+                    <Border Grid.Row="1" StrokeShape="RoundRectangle 40"
+                            Margin="20, 30, 0, 30"
+                            Padding="20,5">
+                        <Entry Placeholder="Password"
+                               Text="{Binding Password, Mode=TwoWay}"
+                               IsPassword="True"/>
+                    </Border>
+                    
+
+                    <Button Text="Sign In" Grid.Row="2"
+                            CornerRadius="50"
+                            HorizontalOptions="Fill"
+                            Margin="20, 30, 0, 30"
+                            Command="{Binding SignInCommand}"
+                            IsEnabled="True"
+                            x:Name="SignIn"/>
+
+                    <Label Grid.Row="3" Text="Forgot Password?"
+                           HorizontalTextAlignment="Center"
+                           Margin="0,20,0,0"/>
+
+                    <Label Grid.Row="4"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"
+                           Margin="0,20,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Don't have an account? "/>
+                                <Span Text="Sign Up" TextColor="{StaticResource PrimaryDarkText}">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding ToSignUpCommand}"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    
+                    
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollView>
+</ContentPage>
