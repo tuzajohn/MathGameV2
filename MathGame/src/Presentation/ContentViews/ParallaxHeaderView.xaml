@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathGame.src.Presentation.ContentViews.ParallaxHeaderView">
+    <Grid>
+        <Image x:Name="ParallaxImage"
+               Source="background.jpg"
+               HeightRequest="250"
+               Aspect="AspectFill"
+               VerticalOptions="Start"
+               HorizontalOptions="Fill"/>
+        <BoxView BackgroundColor="Black" Opacity="0.2" HeightRequest="250"/>
+        <Label x:Name="TitleLabel"
+               Text="Parallax Header"
+               FontSize="24"
+               TextColor="White"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+    </Grid>
+</ContentView>

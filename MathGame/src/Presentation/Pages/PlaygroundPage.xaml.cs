@@ -11,16 +11,31 @@ public partial class PlaygroundPage : ContentPage
 		InitializeComponent();
 
         BindingContext = _viewModel = vm;
+
+        SetNavigationBarTransparent();
     }
-    protected override async void OnAppearing()
+    protected override void OnAppearing()
     {
-
-        await _viewModel.AddCommand.ExecuteAsync(new PlayFeatureRequest
-        {
-
-        });
-
-
         base.OnAppearing();
+    }
+
+    private void OnScrollViewScrolled(object sender, ScrolledEventArgs e)
+    {
+        double scrollY = e.ScrollY;
+
+        ParallaxImage.TranslationY = scrollY * 0.5; 
+        double fadeFactor = 1 - (scrollY / 300);
+        ParallaxImage.Opacity = Math.Max(fadeFactor, 0);
+        SetNavigationBarOpacity(fadeFactor);
+    }
+    private void SetNavigationBarTransparent()
+    {
+        Shell.SetTitleColor(this, Colors.Transparent);
+    }
+
+    private void SetNavigationBarOpacity(double opacity)
+    {
+        Color backgroundColor = Color.FromRgba(0, 0, 0, 1 - opacity);
+        Shell.SetTitleColor(this, backgroundColor);
     }
 }
