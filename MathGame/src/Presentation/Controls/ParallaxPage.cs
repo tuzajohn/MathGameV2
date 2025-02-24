@@ -6,7 +6,7 @@ public abstract class ParallaxPage : ContentPage
 {
     protected ParallaxHeaderView ParallaxHeader;
 
-    public static readonly BindableProperty TitleProperty = 
+    public static readonly new BindableProperty TitleProperty = 
         BindableProperty.Create(nameof(Title),
             typeof(string), typeof(ParallaxPage),
             string.Empty);

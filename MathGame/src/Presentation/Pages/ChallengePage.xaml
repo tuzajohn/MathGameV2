@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathGame.src.Presentation.Pages.ChallengePage"
+             Title="ChallengePage">
+    <Grid RowDefinitions="Auto, 0.2*, Auto, Auto, 0.2*">
+        <Grid ColumnDefinitions="0.33*,0.33*,0.33*"
+              Margin="0,15,0,0">
+            <Label Grid.Column="0" FontSize="Large"
+                   Text="Level" Margin="15,0,0,0"/>
+            <Label Grid.Column="1" FontSize="Large"
+                   Text="Score" Margin="0,0,0,0"/>
+            <Label Grid.Column="2" FontSize="Large"
+                   Text="Streak: 100" Margin="0,0,15,0"/>
+        </Grid>
+
+        <VerticalStackLayout Grid.Row="1" 
+                             Margin="0,40,0,0">
+            <Label Text="120,000"
+                   FontSize="60"
+                   LineBreakMode="WordWrap"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="+"
+                   FontSize="60"
+                   LineBreakMode="WordWrap"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="80,000"
+                   FontSize="60"
+                   LineBreakMode="WordWrap"
+                   HorizontalTextAlignment="Center"/>
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="2"
+                               HorizontalOptions="Center"
+                               Padding="0,15">
+            <Grid ColumnDefinitions="*, *" RowDefinitions="*, *" ColumnSpacing="50">
+                <RadioButton FontSize="20" 
+                             Content="A. (1800000)"
+                             Value="A" 
+                             Grid.Column="0" Grid.Row="0" />
+                <RadioButton FontSize="20" 
+                             Content="B. (2000000)" 
+                             Value="B" 
+                             Grid.Column="1" Grid.Row="0"/>
+                <RadioButton FontSize="20" 
+                             Content="C. (2200000)" 
+                             Value="C" 
+                             Grid.Column="0" Grid.Row="1"/>
+                <RadioButton FontSize="20" 
+                             Content="D. (1600000)" 
+                             Value="D" 
+                             Grid.Column="1" Grid.Row="1"/>
+            </Grid>
+        </HorizontalStackLayout>
+
+        <Grid ColumnDefinitions="0.5*, 0.5*"
+              Grid.Row="3">
+            <Label Grid.Column="0" FontSize="20"
+                   Text="Time Left: 7s" Margin="15,0,0,0"/>
+        </Grid>
+
+
+        <VerticalStackLayout Grid.Row="4"
+                             Margin="15"
+                             Spacing="10">
+            <Button Text="Answer"/>
+            <Button Text="Skip"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

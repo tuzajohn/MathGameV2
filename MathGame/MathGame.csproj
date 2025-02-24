@@ -83,6 +83,9 @@
 	  <MauiXaml Update="src\Presentation\Pages\AuthenticationPages\SignUpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="src\Presentation\Pages\ChallengePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

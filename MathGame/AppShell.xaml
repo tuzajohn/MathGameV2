@@ -9,14 +9,14 @@
     Title="MathGame">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate local:ChallengePage}"
         Route="main" />
 
-    <FlyoutItem Title="Cats"
+    <!--<FlyoutItem Title="Cats"
                 Icon="cat.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:PlaygroundPage}" />
         </Tab>
-    </FlyoutItem>
+    </FlyoutItem>-->
     
 </Shell>
